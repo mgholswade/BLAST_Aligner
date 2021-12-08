@@ -1,7 +1,7 @@
 ##This contains all of the basic functions used in the main program for blast alignment.
 import numpy as np
 import pandas as pd
-
+from os.path import exists
 
 #Basic steps for BLAST Alignment
 #Start with query sequence (q) and heuristics:
@@ -19,12 +19,25 @@ import pandas as pd
 
 
 
-#FIXME# Change to more descriptive function name
-def word_list(q):
+def word_list(w,q):
     word_list = []
 
-    for i in range(0,len(q)-1):
-        word_list.append(q[i:(i+1)])
+    for i in range(0,len(q)-w):
+        word_list.append(q[i:(i+w)])
 
     return word_list
+
+
+#Function to import chosen scoring matrix 
+def score_choose():
+    matrixName = input('Enter Scoring Matrix: ')
+    path = '../data/{}.csv'.format(matrixName)
+    
+    if exists(path):
+        matrix = pd.read_csv(path)
+    else:
+        print('ERROR: Not a valid scoring matrix.')
+        matrix = score_choose()
+
+    return matrix
 
