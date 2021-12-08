@@ -41,3 +41,12 @@ def score_choose():
 
     return matrix
 
+#Function to score a word using the chosen scoring matrix
+def word_score(word,matrix,T):
+    wordList = []
+    for i in range(0,len(word)):
+        wordList.append(word[i])
+    
+    for ch in wordList:
+        
+
