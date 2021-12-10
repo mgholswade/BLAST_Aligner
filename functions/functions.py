@@ -77,6 +77,8 @@ def word_score(word,matrix,T):
 def list_score(wordList,matrix,T):
     thresholdWords = []
     for word in wordList:
-        thresholdWords.append(word_score(wordList,matrix,T))
+        newWords = word_score(word,matrix,T)
+        for newWord in newWords:
+            thresholdWords.append(newWord)
     
     return thresholdWords
