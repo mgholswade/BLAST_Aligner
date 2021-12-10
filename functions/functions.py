@@ -72,5 +72,11 @@ def word_score(word,matrix,T):
         if sum(scoreCombs[l]) >= T:
             thresholdWords.append(wordCombs[l])
 
-    return thresholdWords #FIXME# Temp variable for testing purposes
-    #return wordList
+    return thresholdWords 
+
+def list_score(wordList,matrix,T):
+    thresholdWords = []
+    for word in wordList:
+        thresholdWords.append(word_score(wordList,matrix,T))
+    
+    return thresholdWords
