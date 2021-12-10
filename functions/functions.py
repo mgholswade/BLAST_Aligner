@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 from os.path import exists
+import itertools
 
 #Basic steps for BLAST Alignment
 #Start with query sequence (q) and heuristics:
@@ -43,6 +44,7 @@ def score_choose():
 
 #Function to score a word using the chosen scoring matrix
 def word_score(word,matrix,T):
+
     wordList = []
     for i in range(0,len(word)):
         wordList.append(word[i])
@@ -52,7 +54,11 @@ def word_score(word,matrix,T):
     for ch in wordList:
          #Pull each column from the scoring matrix, add to new matrix
         wordMat = wordMat.append(matrix[ch])
-
-    return wordMat #FIXME# Temp variable for testing purposes
+    
     #Add up each combination of row entries of the scoring matrix, if it is over T then add to wordList
+
+
+    for t in itertools.product(*iterables):
+        print t
+    return wordMat #FIXME# Temp variable for testing purposes
     #return wordList
