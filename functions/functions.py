@@ -47,6 +47,9 @@ def word_score(word,matrix,T):
     for i in range(0,len(word)):
         wordList.append(word[i])
     
+    #Pull the first column of the scoring matrix to determine strings
     for ch in wordList:
-         
-    return 
+         #Pull each column from the scoring matrix, add to new matrix
+    
+    #Add up each row of the scoring matrix, if it is over T then add to wordList
+    return wordList
