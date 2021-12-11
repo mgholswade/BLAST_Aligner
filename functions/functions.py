@@ -48,8 +48,11 @@ def word_score(word,matrix,T):
         wordList.append(word[i])
     
     #Pull the first column of the scoring matrix to determine strings
+    wordMat = pd.DataFrame()
     for ch in wordList:
          #Pull each column from the scoring matrix, add to new matrix
-    
-    #Add up each row of the scoring matrix, if it is over T then add to wordList
-    return wordList
+        wordMat.append(matrix[ch])
+
+    return wordMat #FIXME# Temp variable for testing purposes
+    #Add up each combination of row entries of the scoring matrix, if it is over T then add to wordList
+    #return wordList
