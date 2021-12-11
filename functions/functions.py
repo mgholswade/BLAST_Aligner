@@ -48,5 +48,5 @@ def word_score(word,matrix,T):
         wordList.append(word[i])
     
     for ch in wordList:
-        
-
+         
+    return 
