@@ -82,3 +82,35 @@ def list_score(wordList,matrix,T):
             thresholdWords.append(newWord)
     
     return thresholdWords
+
+
+
+def query(wordList,sequence):
+    for word in wordList:
+        #Find matches in the query sequence
+        #For each match, extend alignment
+        return 0
+
+#This function is used to align 
+def alignment(word, dbSeq, dict):
+
+
+    mat = np.zeros((len(word)+1,len(dbSeq)+1))
+    maxScore = 0
+    loc = [0,0]
+
+    for i in range(1,len(dbSeq)):
+        for j in range(1,len(word)):
+
+            #Use recurrence rule
+            if dbSeq[i] == word[j]:
+                delta = dict['hit']
+            else:
+                delta = dict['miss']
+            mat[i,j] = max(0, mat[i,j-1] + dict['gap'], mat[i-1,j] + dict['gap'], mat[i-1][j-1] + delta)
+        if mat[i,j] > maxScore:
+            loc = [i,j]
+    
+    
+    return loc, mat[loc[0],loc[1]]
+
